@@ -9,7 +9,7 @@
 <form th:method="POST" th:action="@{/create}" th:object="${user}">
     <label for="name">Enter name: </label>
     <input type="text" th:field="*{name}" id="name"/>
-    <div style="color:red" th:if="${#fields.hasErrors('names')}" th:errors="*{name}">Name error</div>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
     <br/>
     <br/>
     <label for="age">Enter age: </label>
