@@ -1,6 +1,5 @@
 package ru.karibian.springboot.service;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,30 +11,30 @@ import java.util.List;
 @Service
 public class UserServicesImpl implements UserServices {
 
-    @Autowired
     private UserDao userDao;
 
     @Transactional(readOnly = true)
-    public List<User> index() {
-        return userDao.index();
+    public List<User> findAllUsers() {
+        return userDao.findAllUsers();
+    }
+
+    @Transactional(readOnly = true)
+    public User findUserById(int id) {
+        return userDao.findUserById(id);
     }
 
     @Transactional
-    public User show(int id) {
-        return userDao.show(id);
+    public void createUser(User user) {
+        userDao.saveUser(user);
     }
 
     @Transactional
-    public void save(User user) {
-        userDao.save(user);
+    public void updateUser(int id, User updatedUser) {
+        userDao.updateUser(id, updatedUser);
     }
 
     @Transactional
-    public void update(int id, User updatedUser) {
-        userDao.update(id, updatedUser);
-    }
-    @Transactional
-    public void delete(int id) {
-        userDao.delete(id);
+    public void deleteUserById(int id) {
+        userDao.deleteUser(id);
     }
 }

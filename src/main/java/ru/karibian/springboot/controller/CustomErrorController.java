@@ -11,12 +11,12 @@ public class CustomErrorController implements ErrorController {
     private static final Logger logger = LoggerFactory.getLogger(CustomErrorController.class);
 
     @RequestMapping("/error")
-    public String handleError() {
+    public String handleErrorRequest() {
         logger.error("Handling error");
         return "error"; // Возвращает имя шаблона ошибки (error.html)
     }
 
-    public String getErrorPath() {
+    public String fetchErrorPath() {
         return "/error"; // Указывает путь, который обрабатывает ошибки
     }
 }

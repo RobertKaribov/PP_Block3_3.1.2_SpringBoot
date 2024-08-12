@@ -5,9 +5,9 @@ import ru.karibian.springboot.model.User;
 import java.util.List;
 
 public interface UserServices {
-    List<User> index();
-    User show(int id);
-    void save(User user);
-    void update(int id, User updatedUser);
-    void delete(int id);
+    List<User> findAllUsers();
+    User findUserById(int id);
+    void createUser(User user);
+    void updateUser(int id, User updatedUser);
+    void deleteUserById(int id);
 }
